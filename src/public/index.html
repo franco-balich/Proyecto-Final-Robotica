@@ -3,10 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css" />
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Robotica</title>
 </head>
 <body>
-    <h1>Hola mundo</h1>
+    <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <br>
+            <div class="alert alert-secondary" role="alert">
+              <h1>Robot controlado por Iot inteligente</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <img src="img/robot.png" class="img-responsive" style="width: auto; height: 200px;" alt="...">
+            </div>
+            <div class="Controles">
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <button type="button" id="btnArriba" class="btn btn-secondary btnControl"><p>↑</p></button>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+              <div class="col-md-auto">
+                <button type="button" id="btnIzquierda" class="btn btn-secondary btnControl"><p>←</p></button>
+              </div>
+              <div class="col-md-auto">
+                <button type="button" id="btnDerecha" class="btn btn-secondary btnControl"><p>→</p></button>
+              </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <button type="button" id="btnAbajo" class="btn btn-secondary btnControl"><p>↓</p></button>
+                </div>
+            </div>
+        </div>
+          </div>
+        <div>
+          <br>
+        </div>
+      <div class="border" style="padding: 10px;">
+        
+        <form>
+          <div class="alert alert-secondary" role="alert">
+            Gestor de la comunicacion MQTT
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Topic:</label>
+            <input type="text" class="form-control" id="txtTopic" placeholder="Ingrese el topic">
+            
+          </div>
+          <button type="button" class="btn btn-primary" id="btnSuscribirse">Suscribirse</button>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Mensajes:</label>
+            <select multiple class="form-control" id="listaDeMensajes">
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Mensaje:</label>
+            <input type="text" class="form-control" id="txtMensaje" placeholder="Ingrese el mensajea enviar">
+          </div>
+          <button type="button" class="btn btn-primary" id="btnEnviar">Enviar</button>
+        </form>
+      </div>
+      </div>
+      <footer>
+          <div class="container" style="margin-top: 20px;">
+                <div class="row justify-content-md-end">
+                    <div class="col-md-auto">       
+                        <h6>Alumnos: Franco Balich y Lucas Gino</h6>
+                    </div>
+                </div>
+          </div>
+      </footer>
 </body>
+<div> 
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/botones.js"></script>
+</div>
+
 </html>

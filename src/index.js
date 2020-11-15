@@ -19,10 +19,14 @@ function MandarMensajeMQTT(mensaje){
 function MandarDireccionMQTT(mensaje){
     client.publish('direccion',mensaje);
     console.log('Direccion: ',mensaje);
-  
+}
+function MandarEstado(mensaje){
+  client.publish('estado',mensaje);
+  console.log('Estado: ',mensaje);
 }
 function SuscribirMQTT(topic){
     client.subscribe(topic);
+    client.subscribe("estado");
     console.log('Suscrito a: ',topic);
     TopicMQTT=topic;
 }
@@ -62,6 +66,9 @@ function IniciarServer(){
     });
     socketIO.on('direccion', (data)=>{
       MandarDireccionMQTT(data);
+    });
+    socketIO.on('estado', (data)=>{
+      MandarEstado(data);
     });
   });
   client.on('message',(topic,message)=>{

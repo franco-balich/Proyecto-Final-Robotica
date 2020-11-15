@@ -4,12 +4,14 @@ const   btnArriba = document.getElementById('btnArriba'),
         btnDerecha = document.getElementById('btnDerecha'),
         btnSuscribirse = document.getElementById('btnSuscribirse'),
         btnEnviar = document.getElementById('btnEnviar'),
+        btnEstado = document.getElementById('btnEstado'),
         listaMensajes = document.getElementById('listaDeMensajes'),
         txtTopic= document.getElementById('txtTopic'),
         txtMensaje= document.getElementById('txtMensaje');
 
 var mensaje="";
 var topic ="";
+var estado= true;
 
 function EnviarMensaje(etiqueta,mensaje){
     socket.emit(etiqueta,mensaje);
@@ -68,3 +70,17 @@ btnDerecha.addEventListener('click', () => {
     EnviarMensaje('direccion',mensaje)
     //listaMensajes.innerHTML += "<option>"+mensaje+"</option>";
 });
+btnEstado.addEventListener('click', () => {
+    estado=!estado;
+    if (estado){
+        mensaje="Manual"
+    }
+    else{
+        mensaje="Automatico"
+    }    
+    console.log(mensaje)
+    btnEstado.innerHTML =mensaje
+    EnviarMensaje('estado',mensaje)
+    //listaMensajes.innerHTML += "<option>"+mensaje+"</option>";
+});
+

@@ -17,10 +17,11 @@ function EnviarMensaje(etiqueta,mensaje){
     socket.emit(etiqueta,mensaje);
 }
 const socket = io("http://localhost:3000/");
+//const socket = io("https://119c817e659c.ngrok.io");
 
 socket.on('respuesta', (data)=>{
     console.log("Mensaje MQTT: ",data);
-    listaMensajes.innerHTML += "<option>"+data+"</option>";
+    listaMensajes.innerHTML = "<option>"+data+"</option>" + listaMensajes.innerHTML;
 });
 
 btnEnviar.addEventListener('click', () => {

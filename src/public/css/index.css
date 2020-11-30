@@ -11,9 +11,10 @@ h1 {
   }
 
   .btnControl{
-    width:60px;
-    height: 60px;
-    margin: 2px;
+    width:80px;
+    height: 80px;
+    margin: 7px;
+    padding: 0;
   }
   .btnControl p{
     font-size: 30px;
